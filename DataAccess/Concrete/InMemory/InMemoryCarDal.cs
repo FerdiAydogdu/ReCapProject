@@ -17,11 +17,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{Id = 1, BrandId = 1, ColorId = 2, DailyPrice = 350, ModelYear = 2016, Description = "Skoda SuperB" },
-                new Car{Id = 2, BrandId = 2, ColorId = 1, DailyPrice = 420, ModelYear = 2018, Description = "Volkswagen Passat" },
-                new Car{Id = 3, BrandId = 2, ColorId = 2, DailyPrice = 450, ModelYear = 2020, Description = "Volkswagen Golf" },
-                new Car{Id = 4, BrandId = 3, ColorId = 3, DailyPrice = 320, ModelYear = 2017, Description = "Fiat Egea" },
-                new Car{Id = 5, BrandId = 1, ColorId = 2, DailyPrice = 330, ModelYear = 2016, Description = "Skoda Octavia" }
+                new Car{CarId = 1, BrandId = 1, ColorId = 2, DailyPrice = 350, ModelYear = 2016, Description = "Skoda SuperB" },
+                new Car{CarId = 2, BrandId = 2, ColorId = 1, DailyPrice = 420, ModelYear = 2018, Description = "Volkswagen Passat" },
+                new Car{CarId = 3, BrandId = 2, ColorId = 2, DailyPrice = 450, ModelYear = 2020, Description = "Volkswagen Golf" },
+                new Car{CarId = 4, BrandId = 3, ColorId = 3, DailyPrice = 320, ModelYear = 2017, Description = "Fiat Egea" },
+                new Car{CarId = 5, BrandId = 1, ColorId = 2, DailyPrice = 330, ModelYear = 2016, Description = "Skoda Octavia" }
             };
         }
 
@@ -32,7 +32,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carToDelete = _cars.SingleOrDefault(c => c.Id == car.Id);
+            Car carToDelete = _cars.SingleOrDefault(c => c.CarId == car.CarId);
             _cars.Remove(carToDelete);
         }
 
@@ -53,7 +53,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetById(int id)
         {
-            return _cars.Where(c => c.Id == id).ToList();
+            return _cars.Where(c => c.CarId == id).ToList();
         }
 
         public List<CarDetailDto> GetCarDetails()
@@ -63,7 +63,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Update(Car car)
         {
-            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
+            Car carToUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
             carToUpdate.BrandId = car.BrandId;
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.DailyPrice = car.DailyPrice;

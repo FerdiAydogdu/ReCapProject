@@ -18,12 +18,40 @@ namespace ConsoleUI
             // BrandAddTest();
             // ColorAddTest();
             // CarAddTest();
+            // UserAddTest();
+            CustomerAddTest();
 
             // CarDeleteTest();
             // CarUpdateTest();
             // CarGetAllTest();
 
-            CarDetailsTest();
+            // CarDetailsTest();
+        }
+
+        private static void CustomerAddTest()
+        {
+            Customer customer = new Customer
+            {
+                UserId = 1,
+                CustomerId = 1,
+                CompanyName = "Microsoft"
+            };
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(customer);
+        }
+
+        private static void UserAddTest()
+        {
+            User user = new User
+            {
+                UserId = 1,
+                FirstName = "Ferdi",
+                LastName = "Aydoğdu",
+                Email = "ferdi.aydogdu@gmail.com",
+                Password = "123456"
+            };
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(user);
         }
 
         private static void CarDetailsTest()
@@ -40,7 +68,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             Car car = new Car
             {
-                Id = 4,
+                CarId = 4,
                 BrandId = 4,
                 ColorId = 4,
                 ModelYear = 2017,
@@ -55,7 +83,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             Car car = new Car
             {
-                Id = 4,
+                CarId = 4,
                 BrandId = 4,
                 ColorId = 4,
                 ModelYear = 2017,
@@ -70,7 +98,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             Car car = new Car
             {
-                Id = 4,
+                CarId = 4,
                 BrandId = 4,
                 ColorId = 4,
                 ModelYear = 2017,
@@ -85,7 +113,7 @@ namespace ConsoleUI
             ColorManager colorManager = new ColorManager(new EfColorDal());
             Color color = new Color
             {
-                Id = 4,
+                ColorId = 4,
                 ColorName = "Kırmızı"
             };
             colorManager.Add(color);
@@ -96,7 +124,7 @@ namespace ConsoleUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             Brand brand = new Brand
             {
-                Id = 4,
+                BrandId = 4,
                 BrandName = "Audi"
             };
             brandManager.Add(brand);
